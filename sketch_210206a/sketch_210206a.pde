@@ -10,7 +10,16 @@ class Mover {
   }
   
   void display(){
-    rect(location.x, location.y, 20, 50);
+    stroke(0);
+    fill(255,255,0);
+    pushMatrix();
+      translate(location.x,location.y);
+      rotate(velocity.heading());
+      rectMode(CENTER);
+      rect(0, 0, 20, 50);
+      rect(-10, 25, 20, 12.5);
+      rect(-10, -25, 20, 12.5);  
+    popMatrix();
   }
   
   void update(float speedX, float speedY){
@@ -48,6 +57,7 @@ void setup(){
 }
 
 void draw(){
+  background(255);
   mover.display();
   mover.update();
   mover.checkBorders();
