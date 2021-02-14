@@ -1,6 +1,6 @@
 # README
 
-## This is the production documentation for the February 15th assignment.
+## This is the documentation for February 15th assignment.
 
 For this week's project, I have updated my rocket from a simple yellow rectangle to an upgraded spaceship that looks awesome on the dark blue background (thanks to @classmates for inspiration!).
 
