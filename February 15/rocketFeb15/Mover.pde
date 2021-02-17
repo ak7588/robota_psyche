@@ -62,6 +62,16 @@ class Mover {
     acceleration.add(force);
   }
   
+  // Calculate steering force to seek a target
+  void seek(PVector target) {
+    PVector desired = PVector.sub(target, location);
+    desired.normalize();
+    desired.mult(maxspeed);
+    PVector steer = PVector.sub(desired, velocity);
+    steer.limit(maxforce);
+    applyForce(steer);
+  }
+  
   void followFlow(flowField flow){
     PVector desired = flow.lookup(location);
     desired.mult(maxspeed);
