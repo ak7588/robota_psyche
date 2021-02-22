@@ -11,7 +11,7 @@ Here, I have modified all of the force functions to return a PVector instead of 
 
 This Class decides how each of the rockets will behave. Based on randomness, it chooses one of the four images for each rocket to have, as well as all of their individual parameters. Each parameter is returned to the Mover object when the respective functions are called.
 
-![Test Image 1](“rocketDNA.png”)
+![Test Image 1](rocketDNA.png)
 
 - Planet Class:
 
@@ -25,5 +25,5 @@ Some of the challenges encountered was working on the DNA class to choose the "u
 
 Here is how the program looks like:
 
-![Test Image 2](“rocketDNA1.png”)
+![Test Image 2](rocketDNA1.png)
 
