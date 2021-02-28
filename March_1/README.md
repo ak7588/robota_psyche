@@ -13,3 +13,4 @@ The DNA class works as expected and makes new rockets have their relatives' DNA.
 That's it!
 
 
+![Test Image 1](rockets.png)
