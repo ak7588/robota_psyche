@@ -23,3 +23,11 @@ Next steps:
 Next steps:
 - Improve design features
 - Add difficulty levels to the game
+
+## April 22:
+- Implemented the difficulty level into the game. The more is the score, the harder it becomes to complete the game. This took some time as I had a challenge updating the function inside the Cat class and passing the score. A mistake that I did at first was incrementing difficulty instead of setting it to a different value, which resulted in enormous numbers. All fixed now.
+- Health is now displaying in a bar for the player to see.
+
+Next steps:
+- Play with sound. Can I add a background sound?
+- What background design do I want to make?
