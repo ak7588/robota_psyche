@@ -24,7 +24,9 @@ class ID {
     push();
     fill(0);
     textAlign(LEFT);
+    textSize(22);
     text("Score: " + score, 50, 50);
+    text("Health: ", width - 200 - 5*22, 50);
     pop();
   }
 

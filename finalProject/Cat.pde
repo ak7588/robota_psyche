@@ -140,8 +140,11 @@ class Cat {
   }
 
   void separate(ArrayList<Cat> cats, int difficulty) {
+    println("----");
+    println("Difficulty: ", difficulty);
+    println("----");
     PVector steer = new PVector(0, 0);
-    float desiredSep = difficulty; // separation in pixels
+    int desiredSep = difficulty; // separation in pixels
     int count = 0;
     PVector sum = new PVector(0, 0);
     for (Cat other : cats) {
@@ -200,9 +203,6 @@ class Cat {
   }
 
   boolean checkCollision() {
-    println("Mouse: ", mouseX, mouseY);
-    println("Location: ", location.x, location.y);
-    println("Image Dim: ", cats[catIndex].width, cats[catIndex].height);
     if (mouseX >= location.x && mouseX <= location.x + cats[catIndex].width && 
       mouseY >= location.y && mouseY <= location.y + cats[catIndex].height) {
       return true;

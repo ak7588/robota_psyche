@@ -2,6 +2,7 @@ import processing.sound.*;
 
 // GUI
 SoundFile sound;
+SoundFile kitty;
 int sceneManager = 0;
 int rectX, rectY;
 int rectSize = 150;
@@ -34,6 +35,7 @@ void setup() {
   font = createFont("DotGothic16", 32);
   textFont(font);
   sound = new SoundFile(this, "cat.mp3");
+  kitty = new SoundFile(this, "kitty.mp3");
 
   // Game Logic
   f = new FlowField(15);
@@ -60,6 +62,7 @@ void draw() {
     id.display();
     id.displayScore();
     id.collect();
+    student.displayHealth();
     for (Cat cat : cats) {
       cat.separate(cats, gameDifficulty);
       cat.follow(f);
@@ -72,9 +75,21 @@ void draw() {
       cat.display();
       student.updateHealth(cat.checkCollision());
     }
+    updateDifficulty(id);
   } else if (sceneManager == 2) {
     textAlign(CENTER);
     text("GAME OVER", width/2, height/2);
+  }
+}
+
+void updateDifficulty(ID id) {
+  println("Score: ", id.score);
+  if (id.score == 5) {
+    gameDifficulty = 70;
+  } else if (id.score == 10) {
+    gameDifficulty = 100;
+  } else if (id.score == 15) {
+    gameDifficulty = 120;
   }
 }
 

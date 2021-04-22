@@ -13,6 +13,22 @@ class Player {
     prevState = false;
     flag = false;
   }
+  
+  void displayHealth() {
+    int rectW = 200;
+    int rectH = 20;
+    int rectX = width - 20 - rectW;
+    int rectY = 30;
+    push();
+      noFill();
+      stroke(1);
+      rect(rectX, rectY, rectW, rectH);
+      push();
+        fill(238, 232, 170);
+        rect(rectX, rectY, health*2, rectH);
+      pop();
+    pop();
+  }
 
   void updateHealth(boolean collisionState) {
     // check prev state for collision
