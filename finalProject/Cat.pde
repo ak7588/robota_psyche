@@ -12,6 +12,7 @@ class Cat {
   final float tooClose = 25;
 
   Cat(float x, float y, float vx, float vy) {
+
     location = new PVector(x, y);
     acceleration = new PVector(0, 0);
     velocity = new PVector(vx, vy);
@@ -30,9 +31,8 @@ class Cat {
     } else {
       isRed = false;
     }
-    
-    catIndex = int(random(1,5));
-    
+
+    catIndex = int(random(1, 5));
   }
 
   float distanceTo(PVector l) {
@@ -97,7 +97,7 @@ class Cat {
     }
   }
 
-  void avoidRedAnts(ArrayList<Cat> cats) {
+  void avoidRedCats(ArrayList<Cat> cats) {
     PVector sum = new PVector(0, 0);
     int count = 0;
     for (Cat other : cats) {
@@ -139,6 +139,31 @@ class Cat {
     acceleration.add(force);
   }
 
+  void separate(ArrayList<Cat> cats, int difficulty) {
+    PVector steer = new PVector(0, 0);
+    float desiredSep = difficulty; // separation in pixels
+    int count = 0;
+    PVector sum = new PVector(0, 0);
+    for (Cat other : cats) {
+      // distance between current and other
+      float thisDist = PVector.dist(location, other.location);
+
+      if ((thisDist > 0) && (thisDist < desiredSep)) {
+        PVector diff = PVector.sub(location, other.location);
+        diff.normalize();
+        sum.add(diff);
+        count++;
+      }
+    }
+    if (count>0) {
+      sum.div(count);
+      sum.setMag(maxspeed);
+      steer = PVector.sub(sum, velocity);
+      steer.limit(maxforce);
+    }
+    applyForce(steer);
+  }
+
   void update() {
     velocity.add(acceleration);
     velocity.limit(maxspeed);
@@ -172,5 +197,16 @@ class Cat {
     } else {
       return(chance > 80);
     }
+  }
+
+  boolean checkCollision() {
+    println("Mouse: ", mouseX, mouseY);
+    println("Location: ", location.x, location.y);
+    println("Image Dim: ", cats[catIndex].width, cats[catIndex].height);
+    if (mouseX >= location.x && mouseX <= location.x + cats[catIndex].width && 
+      mouseY >= location.y && mouseY <= location.y + cats[catIndex].height) {
+      return true;
+    }
+    return false;
   }
 }

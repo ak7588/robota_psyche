@@ -30,6 +30,23 @@ class FlowField {
     }
   }
 
+  void fieldFollowsMouse() {
+    for (int i = 0; i < cols; i++) {
+      for (int j = 0; j < rows; j++) {
+        // PVector of mouse location
+        PVector mouseAt = new PVector(mouseX, mouseY);
+        // PVector of current location
+        PVector weAt = new PVector(i*resolution, j*resolution);
+        // PVector from our current position to mouse
+        PVector toMouse = PVector.sub( mouseAt, weAt);
+        // Normalize
+        toMouse.normalize();
+        field[i][j] = toMouse;
+      }
+    }
+  }
+
+
   // Given a PVector which defines a location in the flow field,
   // return a copy of the value of the flow field at that location
   PVector lookup(PVector lookup) {
