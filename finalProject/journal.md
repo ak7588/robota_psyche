@@ -31,3 +31,19 @@ Next steps:
 Next steps:
 - Play with sound. Can I add a background sound?
 - What background design do I want to make?
+
+## April 26:
+- Added new background music for a better game experience.
+- Got feedback on cat asssociation + flow field: it might be better to let some cats wander around without the follow mouse flow field.
+
+Next steps:
+- Implement feedback and see if I need the flow field to follow mouse. How the game can become more interesting with more association / different fields?
+
+## April 28:
+- Finalized game design by adding a background image from the @nyuabudhabi Instagram page.
+- Edited the background sound to be less loud.
+- Played around with the flow field and association: orange (aggressive) cats are not following the player; instead, they wander around in a random flow field and have a greater start acceleration than their non-orange counterparts. Thus it gets more difficult for the player to navigate through the game canvas.
+
+I believe the game is now fully complete, with a few minor improvements left, such as:
+- Restarting the game from the beginning on the "Game Over" screen.
+- Maybe assigning more behavior for orange cats or adding "cute" cats that increase health?
