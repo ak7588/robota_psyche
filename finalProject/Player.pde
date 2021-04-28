@@ -1,3 +1,11 @@
+/*
+
+The Player's task is to move around the canvas with the mouse to collect ID's.
+The game starts with the player's full health, deducting each time the collision happens.
+If health is below zero, the game is over.
+
+*/
+
 class Player {
   PVector location;
   PVector velocity;

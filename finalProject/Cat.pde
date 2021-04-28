@@ -1,3 +1,11 @@
+/*
+
+The Cat class creates cat objects that move around the canvas.
+Some cats are orange and aggressive, while others are not.
+Each cat is separated from other cats and is following different behaviors.
+
+*/
+
 class Cat {
   int numCats = 5;
   PImage[] cats;
@@ -14,31 +22,37 @@ class Cat {
   Cat(float x, float y, float vx, float vy) {
 
     location = new PVector(x, y);
-    acceleration = new PVector(0, 0);
     velocity = new PVector(vx, vy);
     maxforce = 1;
     maxspeed = 4;
     alive = true;
 
+    // load images
     cats = new PImage[numCats];
-
     for (int i = 0; i < numCats; i++) {
       cats[i] = loadImage(int(i)+1+".png");
     }
-
+  
+    // determine which cats are aggressive and orange
     if (round(random(1)) == 1) {
       isRed =  true;
+      acceleration = new PVector(0.1, 0.1);
     } else {
       isRed = false;
+      acceleration = new PVector(0, 0);
     }
 
+    // assign image index
     catIndex = int(random(1, 5));
   }
 
+
+  // return distance
   float distanceTo(PVector l) {
     return PVector.sub(l, location).mag();
   }
 
+  // change velocity if borders are reached
   void checkBorders() {
     if (location.x + cats[0].width / 2 > width) {
       velocity.x *= -1;
@@ -54,16 +68,21 @@ class Cat {
     }
   }
 
+  // follow the flow field if the cat is not red
   void follow(FlowField flow) {
-    // Look up the vector at that spot in the flow field
-    PVector desired = flow.lookup(location);
-    desired.mult(maxspeed);
+    if (!isRed) {
+      // Look up the vector at that spot in the flow field
+      PVector desired = flow.lookup(location);
+      desired.mult(maxspeed);
 
-    // Steering is desired minus velocity
-    PVector steer = PVector.sub(desired, velocity);
-    applyForce(applyLimits(steer));
+      // Steering is desired minus velocity
+      PVector steer = PVector.sub(desired, velocity);
+      applyForce(applyLimits(steer));
+    }
   }
-
+  
+  
+  // avoid aggressive cats 
   void avoidAggressive(ArrayList<Cat> cats) {
     int count = 0; // how
     PVector sum = new PVector(0, 0);
@@ -97,6 +116,7 @@ class Cat {
     }
   }
 
+  // avoid red cats
   void avoidRedCats(ArrayList<Cat> cats) {
     PVector sum = new PVector(0, 0);
     int count = 0;
@@ -127,6 +147,7 @@ class Cat {
     }
   }
 
+  // apply force limits
   PVector applyLimits(PVector desiredVelocity) {
     desiredVelocity.normalize();
     desiredVelocity.mult(maxspeed);
@@ -135,10 +156,12 @@ class Cat {
     return(steerForce);
   }
 
+  // apply force
   void applyForce(PVector force) {
     acceleration.add(force);
   }
 
+  // separate cats from each other
   void separate(ArrayList<Cat> cats, int difficulty) {
     println("----");
     println("Difficulty: ", difficulty);
@@ -167,6 +190,7 @@ class Cat {
     applyForce(steer);
   }
 
+  // update cats
   void update() {
     velocity.add(acceleration);
     velocity.limit(maxspeed);
@@ -174,6 +198,7 @@ class Cat {
     acceleration.mult(0); // clear the acceleration for the next frame
   }
 
+  // display cats
   void display() {
     pushMatrix();
     translate(location.x, location.y);

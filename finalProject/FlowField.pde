@@ -58,25 +58,4 @@ class FlowField {
 
     return field[column][row].copy();
   }
-
-  // Display the flow field so we can see if it looks like what we think it should
-  //
-  void display() {
-    for (int i = 0; i < cols; i++) {
-      for (int j = 0; j < rows; j++) {
-        // print("col " + i + " row " + j + "  ");
-        // println(i*resolution, j*resolution, field[i][j].x, field[i][j].y);
-        pushMatrix();
-
-        // This translates to the top left corner of the grid, but really
-        // it should center the vector in the middle of the grid
-        translate(i*resolution, j*resolution);
-        PVector f = field[i][j].copy();
-        f.mult(resolution);
-        line(0, 0, f.x, f.y);
-        ellipse(f.x, f.y, 5, 5); // circle instead of arrow head
-        popMatrix();
-      }
-    }
-  }
 }

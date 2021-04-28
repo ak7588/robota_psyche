@@ -1,3 +1,11 @@
+/*
+
+ID class displays the game token -- student ID.
+Player's task is to get the ID.
+ID gets replaced each time it gets collected.
+
+*/
+
 class ID {
   PVector location;
   PImage id;
