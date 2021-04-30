@@ -44,3 +44,7 @@ For next improvements of this game, it would be interesting to think about how t
 Another potential imporvement is the collision detection process; if I had to describe this as a programmer, I would say that the program works fine in amortized time. However, if a specific number of cats are in the ArrayList, it becomes difficult to trace if the collision detection works _all_ the time.
 
 And lastly, it would be interesting to observe how the user-experience of the game could be improved. Because the game was not user-tested in-person (COVID-19 regulations), it was difficult to adequately assess if the user-flow of the game is optimal.
+
+### Thank You
+
+Thanks for reading this document and there is a more thorough discussion of the program development in the (journal)[https://github.com/ak7588/robota_psyche/blob/main/finalProject/journal.md].
