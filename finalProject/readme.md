@@ -18,9 +18,8 @@ Create an environment with campus cats and a player (student). Some of the cats 
 
 <img src="https://github.com/ak7588/robota_psyche/blob/main/finalProject/playScreen.png" width="400" height="400">
 
-## Process
 
-### Game Logic
+## Game Logic
 
 The core of the game is implemented with the inspiration from the Evolution and Association projects we covered in class. There are four classes in the program, so let's briefly discuss the functionality of each class:
 
@@ -33,11 +32,11 @@ The core of the game is implemented with the inspiration from the Evolution and 
 
 - **ID** class is responsible for ID object manipulation throughout the game. It replaces the ID whenever it gets collected by the player.
 
-### Graphical User Interface
+## Graphical User Interface
 
 A crucial element in the game is the experience design and the graphical user interface, all of which have been implemented using buttons for user-interface and scene manipulation to navigate through different parts of the game.
 
-### Future Improvements
+## Future Improvements
 
 For next improvements of this game, it would be interesting to think about how the association could be used in the opposite way; that is -- not to harm the player by deducting the health points but to give the player more points if they "interact" with a specific type of cat.
 
@@ -45,6 +44,6 @@ Another potential imporvement is the collision detection process; if I had to de
 
 And lastly, it would be interesting to observe how the user-experience of the game could be improved. Because the game was not user-tested in-person (COVID-19 regulations), it was difficult to adequately assess if the user-flow of the game is optimal.
 
-### Thank You
+## Thank You
 
 Thanks for reading this document and there is a more thorough discussion of the program development in the [journal](https://github.com/ak7588/robota_psyche/blob/main/finalProject/journal.md).
