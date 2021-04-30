@@ -47,4 +47,4 @@ And lastly, it would be interesting to observe how the user-experience of the ga
 
 ### Thank You
 
-Thanks for reading this document and there is a more thorough discussion of the program development in the (journal)[https://github.com/ak7588/robota_psyche/blob/main/finalProject/journal.md].
+Thanks for reading this document and there is a more thorough discussion of the program development in the [journal](https://github.com/ak7588/robota_psyche/blob/main/finalProject/journal.md).
