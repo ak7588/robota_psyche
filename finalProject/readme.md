@@ -10,7 +10,7 @@ If the player's health gets below zero, the game is over.
 Author: Amina Kobenova.
 Class Credits: Robota Psyche, 2021.
 
-![Start Screen of the game](https://github.com/ak7588/robota_psyche/blob/main/finalProject/startScreen.png | width=300)
+<img src="https://github.com/ak7588/robota_psyche/blob/main/finalProject/startScreen.png" width="300" height="300">
 
 ## Final Project Idea
 
